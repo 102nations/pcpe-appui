@@ -6,7 +6,7 @@ on:
 env:
   ASC_PACKAGE_PATH: ${{ github.workspace }}
   AZURE_SUBSCRIPTION: 6f25a7f4-92bb-440a-a21e-1cbae174dc04
-  AZURE_WEBAPP_NAME: sb1-microservices-template
+  AZURE_WEBAPP_NAME: sb1-appui
 
 jobs:
   deploy_to_production:
