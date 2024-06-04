@@ -7,7 +7,7 @@ env:
   AZURE_WEBAPP_PACKAGE_PATH: ${{ github.workspace }}/frontend
   AZURE_SUBSCRIPTION: 6f25a7f4-92bb-440a-a21e-1cbae174dc04
   AZURE_WEBAPP_NAME: sb1-appui
-  NODE_VERSION: '22.x'                # set this to the node version to use
+  NODE_VERSION: '20.x'                # set this to the node version to use
 
 
 jobs:
@@ -24,7 +24,7 @@ jobs:
       run: |
         # Build and test the project, then
         # deploy to Azure Web App.
-        npm install
+        npm install --verbose
         npm run build --if-present
         npm run test --if-present
       working-directory: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
