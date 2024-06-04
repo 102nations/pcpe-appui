@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
 export default function App() {
   return (
@@ -11,10 +11,10 @@ export default function App() {
             <li><Link to="/about">About</Link></li>
           </ul>
         </nav>
-        <Switch>
+        <Routes>
           <Route path="/about"><About /></Route>
           <Route path="/"><Home /></Route>
-        </Switch>
+        </Routes>
       </div>
     </Router>
   );
