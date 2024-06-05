@@ -62,7 +62,7 @@ jobs:
     - name: Print downloaded files from 
       shell: bash
       run: |
-          ls -ltra 
+          ls -R frontend 
  #   - name: Login via Azure CLI
  #     uses: azure/login@v1
  #     with:
