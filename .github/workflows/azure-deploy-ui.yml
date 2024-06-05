@@ -9,11 +9,6 @@ env:
   AZURE_WEBAPP_NAME: sb1-appui
   NODE_VERSION: '20.x'                # set this to the node version to use
 
-permissions:
-  contents: read
-defaults:
- run:
-  working-directory: './frontend/'
 
 jobs:
   build:
@@ -29,11 +24,13 @@ jobs:
         npm install
         npm run build --if-present
         npm run test --if-present
+      working-directory: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v3
       with:
         name: node-app
         compression-level: 9 # maximum compression
+        working-directory: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
         path: | 
           build
         
@@ -48,6 +45,7 @@ jobs:
         - name: Download artifact from build job
           uses: actions/download-artifact@v4
           with:
+            working-directory: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
             name: node-app
         - name: Login via Azure CLI
           uses: azure/login@v1
@@ -58,4 +56,4 @@ jobs:
           uses: azure/webapps-deploy@v3
           with:
             app-name: ${{ env.AZURE_WEBAPP_NAME }}
-            package: './frontend/'
+            package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
