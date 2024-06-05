@@ -62,7 +62,7 @@ jobs:
     - name: Print downloaded files from 
       shell: bash
       run: |
-          cd frontend
+          cd frontend/node_modules
           ls -ltr         
  #   - name: Login via Azure CLI
  #     uses: azure/login@v1
