@@ -13,7 +13,7 @@ permissions:
   contents: read
 defaults:
  run:
-  working-directory: ${{ github.workspace }}/frontend/
+  working-directory: './frontend/'
 
 jobs:
   build-and-deploy:
@@ -38,4 +38,4 @@ jobs:
       uses: azure/webapps-deploy@v3
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
-        package: .
+        package: './frontend/'
