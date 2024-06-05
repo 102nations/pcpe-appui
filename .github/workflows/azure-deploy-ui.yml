@@ -13,7 +13,7 @@ permissions:
   contents: read
 defaults:
  run:
-  working-directory: ${{AZURE_WEBAPP_PACKAGE_PATH}}
+  working-directory: ${{ github.workspace }}/frontend/
 
 jobs:
   build-and-deploy:
